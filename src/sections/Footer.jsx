@@ -1,42 +1,73 @@
-import React from 'react'
+import { copyrightSign } from "../assets/icons";
+import { footerLogo } from "../assets/images";
+import { footerLinks, socialMedia } from "../constants";
 
-import styles from '../style'
-import {footerLinks, socialMedia} from '../constants'
-import {hotCoffee} from '../assets'
-
-const Footer = () => 
-(
-  <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
-    <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
-      <div className='flex-1 flex flex-col justify-start mr-10'>
-        <img src={hotCoffee} alt="The coffee Roasters logo" className='w-[266px] h-[72px] object-contain' />
-        <p className={`${styles.paragraph} mt-4 max-w-[310px]`}>Not just a drop-in get coffee service, but a new way to Sit, Relax and enjoy that tailor-made cup of coffee in a new way.</p>
-      </div>
-
-      <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
-        {footerLinks.map((footerLink) => (
-          <div key={footerLink.key} className="flex flex-col ss:my-0 my-4 min-w-[150px]">
-            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-white">{footerLink.title}</h4>
-            <ul className="list-none mt-4">
-              {footerLink.links.map((link, index) => (
-                <li key={link.name} className={`font-poppins font-normal text-[16px] leading-[24px] text-gray-400 hover:text-secondary cursor-pointer ${index !== footerLink.links.length - 1 ? 'mb-4' : 'mb-0'}`}>{link.name}</li>
-              ))}
-            </ul>
+const Footer = () => {
+  return (
+    <footer className="max-container">
+      <div className="flex justify-between items-start gap-20 flex-wrap max-lg:flex-col">
+        <div className="flex flex-col items-start">
+          <a href="/">
+            <img
+              src={footerLogo}
+              alt="logo"
+              width={150}
+              height={45}
+              className="m-0"
+            />
+          </a>
+          <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
+            Get shoes ready for the new term at your nearest Nike store. Find
+            Your perfect size in store. Get Rewards
+          </p>
+          <div className="flex items-center gap-5 mt-8">
+            {socialMedia.map((icon) => (
+              <div
+                key={icon.alt}
+                className="flex justify-center items-center w-12 h-12 bg-white rounded-full"
+              >
+                <img src={icon.src} alt={icon.alt} width={24} height={24} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap">
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="font-montserrat text-2xl leading-normal font-medium mb-6 text-white">
+                {section.title}
+              </h4>
+              <ul>
+                {section.links.map((link) => (
+                  <li
+                    key={link.name}
+                    className="mt-3 font-montserrat text-base leading-normal text-white-400 hover:text-slate-gray"
+                  >
+                    <a href={link.link}></a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
 
-    <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[#3f3e45]">
-      <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white">The Coffee Roasters. All Rights Reserved.</p>
-      <div className="flex flex-row md:mt-0 mt-6">
-        {socialMedia.map((social, index) => (
-          <img key={social.id} src={social.icon} alt={social.id} className={`w-[21px] h-[21px] object-contain cursor-pointer ${index !== socialMedia.length - 1 ? 'mr-6' : 'mr-0'}`} />
-        ))}
+      <div className="flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center">
+        <div className="flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer">
+          <img
+            src={copyrightSign}
+            alt="copyright sign"
+            width={20}
+            height={20}
+            className="rounded-full m-0"
+          />
+          <p> Copyright. All rights reserved</p>
+        </div>
+        <p className="font-montserrat cursor-pointer">Terms & Conditions</p>
       </div>
-    </div>
-  </section>
-)
+    </footer>
+  );
+};
 
-
-export default Footer
+export default Footer;
