@@ -5,14 +5,18 @@ import { bigShoe1 } from "../assets/images";
 import { arrowRight } from "../assets/icons";
 
 const Hero = () => {
-  const [bigShoeImage, setBigShoeImage] = useState(bigShoe1);
+  const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
 
   return (
     <section
       id="home"
-      className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 max-container"
+      className="w-full flex xl:flex-row flex-col justify-center 
+      min-h-screen gap-10 max-container"
     >
-      <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full max-xl:padding-x pt-28">
+      <div
+        className="relative xl:w-2/5 flex flex-col 
+      justify-center items-start w-full max-xl:padding-x pt-28"
+      >
         <p className="text-xl font-montserrat text-coral-red">
           Our Summer Collections
         </p>
@@ -41,23 +45,23 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative justify-center items-start flex flex-1 xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
+      <div className="relative justify-center items-start md:items-center flex flex-1 xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
         <img
-          src={bigShoeImage}
+          src={bigShoeImg}
           alt="shoe collection"
           width={610}
           height={502}
           className="relative z-10 object-contain"
         />
 
-        <div className="flex gap-4 sm:gap-6 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6 ">
+        <div className="flex gap-4 sm:gap-6 absolute -bottom-[5%] 2xl:bottom-[5%]  max-sm:px-6 ">
           {shoes.map((image, index) => (
             <div key={index}>
               <ShoeCard
                 index={index}
                 imgUrl={image}
-                changeBigShoeImage={(shoe) => setBigShoeImage(shoe)}
-                bigShoeImage={bigShoeImage}
+                changeBigShoeImage={(shoe) => setBigShoeImg(shoe)}
+                bigShoeImg={bigShoeImg}
               />
             </div>
           ))}
