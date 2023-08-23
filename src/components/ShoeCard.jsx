@@ -1,15 +1,15 @@
-import React from "react";
 
-const ShoeCard = ({ bigShoeImage, imgURL, changeBigShoeImage }) => {
+const ShoeCard = ({ bigShoeImg, imgUrl, changeBigShoeImage }) => {
+ 
   const clickHandler = () => {
-    if (bigShoeImage !== imgURL.bigShoe) {
-      changeBigShoeImage(imgURL.bigShoe);
+    if (bigShoeImg !== imgUrl.bigShoe) {
+      changeBigShoeImage(imgUrl.bigShoe);
     }
   };
   return (
     <div
       className={`border-2 rounded-xl ${
-        bigShoeImage === imgURL.bigShoe
+        bigShoeImg === imgUrl.bigShoe
           ? "border-coral-red"
           : "border-transparent"
       } cursor-pointer max-sm:flex-1 `}
@@ -17,7 +17,7 @@ const ShoeCard = ({ bigShoeImage, imgURL, changeBigShoeImage }) => {
     >
       <div className="flex justify-center items-center bg-card bg-center bg-cover sm:w-40 sm:h-40 rounded-xl max-sm:p-4">
         <img
-          src={imgURL.thumbnail}
+          src={imgUrl.thumbnail}
           alt="shoe collection"
           width={127}
           height={103.34}
