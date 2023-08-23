@@ -1,13 +1,10 @@
-## NIKE LANDING PAGE
+### REACT LANDING PAGE [REACT LANDING PAGE](https://www.markdownguide.org)
 
-Nike Landing Page
+A beautiful landing page for Nike Brand Shoes.
 
-## Page View
+## Full Page View
 
-Large devices
-
-![Large devices]()
-
+![Large devices](./src/assets/images/nike-land.png)
 
 ### Built With:
 
